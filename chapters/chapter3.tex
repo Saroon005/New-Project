@@ -1,0 +1,161 @@
+\chapter{SYSTEM REQUIREMENTS}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+{\setstretch{1.5}
+
+This chapter presents the system requirements of the ResQNow emergency response system, outlining hardware and software specifications, functional and non-functional requirements, and development tools necessary to support AI-based emergency classification, AR-guided first-aid assistance, reliable SOS communication, and scalable real-time alert delivery.
+
+% ------------------------------------------------------------
+\section{Hardware Requirements}
+The hardware requirements are defined to ensure smooth development, testing, and deployment of the ResQNow system under realistic operating conditions. Adequate computational resources are essential to support simultaneous execution of mobile emulators, backend services, AI model inference, and AR rendering workflows. The specified hardware configurations aim to balance performance, reliability, and cost-effectiveness while ensuring system stability during emergency response simulations and real-time testing. In addition, field testing may involve continuous GPS access, video processing, and BLE communication, which demand reliable device performance under prolonged usage. Therefore, selection of appropriate development hardware significantly improves productivity, reduces latency during debugging, and ensures realistic behaviour under crisis-like operational environments.
+
+\subsection{Development Workstation Requirements}
+
+The development of ResQNow requires workstations capable of running modern mobile development tools, emulators, and backend services simultaneously. A capable workstation ensures faster build times, smoother emulator execution, and efficient handling of AR models during development. Systems with multi-core CPUs and GPU acceleration are preferred to handle real-time rendering and machine learning workloads efficiently. Stable internet connectivity is also required for cloud-based deployment, Firebase integration, and remote logging during backend testing.
+
+\subsubsection{Recommended Mobile Device Requirements}
+
+To conduct effective real-world testing, mobile devices must meet certain baseline specifications to support AR visualization, BLE messaging, GPS positioning, and cloud synchronization reliably. Devices with higher RAM and processing power reduce frame drops during AR guidance, while larger storage allows saving logs, media evidence, and emergency reports locally. The following minimum configuration is recommended:
+
+\begin{itemize}
+    \item \textbf{OS:} Android 11.0+ or iOS 15.0+
+    \item \textbf{Processor:} Octa-core ARM processor
+    \item \textbf{RAM:} Minimum 4 GB
+    \item \textbf{Storage:} 64 GB
+    \item \textbf{Display:} Full HD+ smartphone display
+    \item \textbf{Camera:} Rear camera with AR support
+    \item \textbf{Connectivity:} 4G/5G, Wi-Fi, Bluetooth 5.0+
+    \item \textbf{Battery:} 4000 mAh or higher
+    \item \textbf{AR Support:} ARCore (Android) / ARKit (iOS)
+\end{itemize}
+
+\subsubsection{Critical Hardware Features}
+
+The identified hardware capabilities directly affect the accuracy, responsiveness, and overall usability of ResQNow during emergencies. Sensors and connectivity modules play a key role in real-time data collection and delivery. Devices lacking AR support can still execute the app but will fall back to non-AR instructional mode with reduced visual interactivity. The following components are crucial for seamless first-aid assistance and offline communication:
+
+\begin{itemize}
+    \item \textbf{Bluetooth Low Energy (BLE):} Required for offline SOS relay with peripheral and central mode support for reliable multi-hop mesh networking in emergencies.
+    \item \textbf{GPS with A-GPS:} Necessary for accurate real-time location tracking with Assisted GPS for faster position acquisition during emergency situations.
+    \item \textbf{Motion Sensors:} Accelerometer and gyroscope mandatory for AR-based first-aid guidance and precise device orientation tracking.
+    \item \textbf{Camera with Autofocus:} Required for AR overlay rendering, injury visualization, and accurate real-world alignment of virtual instructions.
+    \item \textbf{ARCore/ARKit Compatibility:} Devices must be certified compatible for optimal AR functionality. Non-compatible devices fall back to video-based guided assistance.
+\end{itemize}
+
+% ------------------------------------------------------------
+\section{Software Requirements}
+The ResQNow system follows a modular, service-oriented architecture integrating AI, AR, cloud services, and wireless communication for real-time emergency assistance. The architecture emphasizes low latency, fault tolerance, security, and scalability, ensuring reliable operation. The system is organized into four layers, each serving specific functions while maintaining loose coupling through well-defined interfaces.
+
+\subsection{Software Architecture Overview}
+
+The ResQNow system follows a modular, service-oriented architecture integrating AI, AR, cloud services, and wireless communication for real-time emergency assistance. The architecture emphasizes low latency, fault tolerance, security, and scalability, ensuring reliable operation in critical situations. It supports distributed deployment and seamless module interaction, enabling efficient updates and feature expansion. The system is organized into four distinct layers, each serving specific functions while maintaining loose coupling through well-defined interfaces for improved maintainability and long-term adaptability.
+
+
+\subsection{Mobile Application Layer}
+
+The Mobile Application Layer serves as the primary user interface of the ResQNow system and is implemented using the Flutter framework for cross-platform support on Android and iOS devices. This layer manages user interaction, sensor access, and emergency triggering functions.
+
+Key components and responsibilities include:
+
+\begin{itemize}
+    \item \textbf{User Authentication Module:} Provides secure login and registration using Firebase Authentication with session management.
+    
+    \item \textbf{SOS Activation Interface:} Enables emergency triggering through an on-screen button or voice command for quick access.
+    
+    \item \textbf{GPS Location Service:} Captures real-time user location data during emergency situations.
+    
+    \item \textbf{AR First-Aid Module:} Displays AR-based visual guidance for first-aid procedures using ARCore or ARKit.
+    
+    \item \textbf{BLE Communication Handler:} Supports offline SOS relay using Bluetooth Low Energy.
+\end{itemize}
+
+\subsection{Backend Services Layer}
+
+The Backend Services Layer is developed using Python with the FastAPI framework and handles all server-side operations, data management, and emergency coordination logic.
+
+Core backend components include:
+
+\begin{itemize}
+    \item \textbf{API Gateway:} Exposes RESTful endpoints for SOS handling and user management.
+    
+    \item \textbf{Incident Management Service:} Tracks emergency status, timestamps, and responder actions.
+    
+    \item \textbf{Data Persistence Layer:} Stores user and emergency data using Firebase Firestore.
+    
+    \item \textbf{Alert Orchestration Engine:} Manages multi-channel emergency notification delivery.
+\end{itemize}
+
+\subsection{AI Intelligence Layer}
+
+The AI Intelligence Layer enables automated understanding and prioritization of emergency situations to assist in rapid response.
+
+This layer includes:
+
+\begin{itemize}
+    \item \textbf{Conversational AI Engine:} Interprets user-described emergencies using cloud-based language models.
+    
+    \item \textbf{Emergency Classification System:} Identifies emergency type and priority level.
+    
+    \item \textbf{Severity Assessment Module:} Determines urgency based on symptoms and context.
+    
+    \item \textbf{Rule-Based Classifier:} Provides offline fallback classification when AI services are unavailable.
+\end{itemize}
+
+\subsection{Communication and Notification Layer}
+
+The Communication Layer ensures reliable delivery of emergency alerts using multiple communication channels.
+
+Components include:
+
+\begin{itemize}
+    \item \textbf{Push Notifications:} Real-time alerts via Firebase Cloud Messaging.
+    
+    \item \textbf{SMS Alerts:} Emergency messages sent to contacts using SMS gateways.
+    
+    \item \textbf{Email Notifications:} Detailed emergency updates through email services.
+    
+    \item \textbf{BLE Mesh Network:} Offline SOS forwarding between nearby devices.
+\end{itemize}
+
+\subsection{Development Tools and Technologies}
+
+The ResQNow system utilizes modern development tools and cloud platforms to support efficient development and deployment.
+
+\subsubsection{Programming Languages and Frameworks}
+
+\begin{itemize}
+    \item \textbf{Dart:} Language used for Flutter mobile application development
+    \item \textbf{Python:} Backend and AI service development
+    \item \textbf{Flutter SDK:} Cross-platform framework for Android and iOS
+    \item \textbf{FastAPI:} Python framework for RESTful API development
+\end{itemize}
+
+\subsubsection{Cloud Services and Infrastructure}
+
+\begin{itemize}
+    \item \textbf{Firebase Firestore:} Real-time NoSQL database for application data
+    \item \textbf{Firebase Authentication:} Secure user authentication service
+    \item \textbf{Firebase Cloud Messaging:} Push notification delivery
+    \item \textbf{Google Cloud Platform:} Backend hosting and deployment
+\end{itemize}
+
+\subsubsection{AI and Augmented Reality Services}
+
+\begin{itemize}
+    \item \textbf{OpenAI / Gemini API:} Emergency understanding and classification
+    \item \textbf{ARCore / ARKit:} Augmented reality support for first-aid guidance
+\end{itemize}
+
+\subsubsection{Communication and Development Tools}
+
+\begin{itemize}
+    \item \textbf{Twilio API:} SMS-based emergency alerts
+    \item \textbf{SendGrid API:} Email notification service
+    \item \textbf{Android Studio / Xcode:} Mobile application development
+    \item \textbf{Git / GitHub:} Version control and collaboration
+\end{itemize}
+
+
+
+% ----------------------------------------------------------
+
+}

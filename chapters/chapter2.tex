@@ -1,0 +1,119 @@
+\chapter{LITERATURE REVIEW}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+{\setstretch{1.5}
+
+This chapter presents a comprehensive review of existing research in emergency response systems, augmented reality-based medical guidance, artificial intelligence-driven emergency detection and triage, and offline communication mechanisms. The review critically examines prior work to identify key limitations and research gaps that justify the development of the proposed ResQNow: AI-AR First Aid \& Emergency App system.
+
+% -----------------------------------------------------------------------------
+\section{Review of Related Works}
+
+Wang et al. [1] developed an augmented reality wound care guidance system using Microsoft HoloLens 2 to train nursing students on standardized wound-care procedures. The system overlays stepwise instructions and graphical hints directly on the patient's wound region to minimize procedural errors and improve adherence to clinical guidelines. Experimental evaluation in controlled laboratory settings demonstrated improved skill retention and reduced task completion time compared to conventional video-based instruction. However, the solution's dependence on expensive mixed-reality headsets, frequent sensor calibration requirements, and visual fatigue during prolonged use present significant barriers to widespread adoption. Furthermore, the system focuses exclusively on clinical training environments rather than real-time emergency first aid for untrained bystanders, and lacks integration with emergency alerting or triage workflows.
+
+Kumar and Choudhary [2] proposed an AR-based burn management assistance system designed to improve care quality in rural and resource-limited healthcare settings. Their system presents visual overlays that guide healthcare workers through burn assessment, cooling, dressing, and referral recommendations. Pilot studies indicated better protocol adherence and increased confidence among semi-skilled health workers. Nevertheless, the solution remains heavily reliant on specialized AR devices with limited battery life and requires controlled indoor environments for stable tracking. The evaluation was conducted on a small sample size, limiting statistical generalization to broader populations. Critically, the system lacks support for offline emergency alert propagation and integration with patient triage and transport coordination.
+
+Rebol et al. [3] introduced a mixed-reality CPR coaching system that uses head-mounted displays to provide real-time visual feedback on chest compression depth, location, and frequency. The system leverages motion tracking sensors to overlay corrective hints and performance metrics within the user's field of view during practice sessions. User studies with medical students demonstrated improved compression rhythm and better adherence to resuscitation guidelines compared to conventional manikin training. However, the system requires specialized mixed-reality equipment, is restricted to simulation laboratories, and assumes a pre-planned training environment. It does not function as an on-demand assistance tool during real cardiac arrest events, nor does it support bystander-oriented CPR guidance in uncontrolled environments.
+
+Abo-Zahhad et al. [4] designed an AI-powered AR glasses system for real-time emergency first-aid guidance using edge computing hardware. Their approach combines object detection, scene understanding, and AR overlays to guide laypersons during emergencies such as bleeding and trauma. The system runs on an NVIDIA Jetson-based platform, enabling on-device AI inference with minimal cloud reliance. Evaluation showed that users could follow step-by-step instructions more accurately than with traditional 2D instructions. However, reliance on dedicated AR glasses and embedded GPU platforms limits affordability and mass adoption. Additionally, the communication layer remains dependent on stable network connectivity for remote supervision.
+
+Thomson et al. [5] presented a systematic review of AR and VR-based CPR training systems used for teaching resuscitation skills. The review showed that immersive technologies significantly improve learner engagement, knowledge retention, and self-efficacy compared to traditional instructor-led sessions. However, most systems were confined to skill laboratories or simulation centers, with high hardware and setup costs. The authors emphasized that existing AR/VR platforms are primarily training tools and not designed for deployment in real-life emergencies, where time, stress, and connectivity constraints are critical. The absence of integration with real-time emergency alerts and severity assessment represents a significant limitation.
+
+
+Mehta et al. [6] proposed a deep learning-based fall detection framework using smartphone accelerometer and gyroscope data to identify sudden falls among elderly users. The model employed convolutional and recurrent architectures to capture temporal motion patterns and achieved high accuracy under controlled experimental settings. However, performance degraded under real-world conditions due to sensor noise, inconsistent device placement, and user-specific motion variability. The system also focused solely on detecting falls without offering integrated emergency response, first-aid guidance, or triage capabilities.
+
+
+Robinson and Alvarez [7] conducted a comprehensive review of smartphone-based fall detection applications available in research and app marketplaces. Their survey revealed that many apps rely on simple threshold-based algorithms or basic machine learning models, resulting in high false-positive rates during normal daily activities. They also observed significant battery consumption due to continuous sensor monitoring and background services. Additionally, most solutions lacked severity assessment, did not differentiate between minor and major falls, and offered limited functionality beyond sending basic SMS alerts. The authors concluded that future systems should incorporate intelligent triage, multimodal sensing, and context-aware alerting.
+
+
+Jain et al. [8] explored AI-based smartphone pulse oximetry using camera-based photoplethysmography and regression models to estimate oxygen saturation. Their method employed signal processing and machine learning to extract SpO₂ values from fingertip videos captured by the phone camera. Under controlled lighting and stable positioning, the system produced clinically acceptable estimates compared to commercial pulse oximeters. However, in uncontrolled environments, performance was highly sensitive to ambient lighting, hand movement, and skin tone variations, resulting in increased error rates. This instability limits applicability in high-stress emergencies where conditions are unpredictable.
+
+
+Chen et al. [9] proposed a smartphone-based vital sign monitoring system capable of estimating heart rate and respiratory rate using camera and inertial sensor data. Their approach aimed to improve accessibility of basic physiological monitoring without dedicated medical devices. Although the system demonstrated good performance for healthy subjects under stable conditions, it required high computational resources and suffered from poor generalization when confronted with abnormal vital ranges or artifacts. The authors noted that the methodology was not optimized for time-critical emergency scenarios where resource constraints and rapid response are essential.
+
+
+Rao and Banerjee [10] reviewed women safety and emergency alert applications that provide panic buttons, SOS messaging, and GPS location sharing. Their study found that most applications simply broadcast location and a short message to predefined contacts or police hotlines. Many solutions raised privacy concerns due to insecure data handling and continuous location tracking. Furthermore, existing apps lacked coordinated responder mechanisms, did not prioritize alerts by severity, and provided no medical guidance to victims in case of physical injury.
+
+
+Evans and Li [11] introduced TCPRLink, a tele-CPR coordination system that enables dispatcher-assisted CPR through real-time communication between emergency call centers and bystanders. The system supports audio instructions and structured guidance to ensure correct CPR technique until professional responders arrive. Simulation studies reported improved chest compression quality and better adherence to dispatcher instructions. However, TCPRLink depends on trained dispatchers, requires stable internet or telephony connectivity, and does not use AR for visual assistance. It also does not function autonomously when professional personnel are unavailable.
+
+
+Thomson et al. [12] performed a systematic analysis of AR and VR-based CPR training platforms across various educational and clinical environments. Their findings indicate that immersive environments significantly enhance user engagement, confidence, and skill retention compared to traditional classroom methods. Nevertheless, most studied systems were deployed as standalone training tools without linkage to real-time emergency response workflows. They lacked capabilities such as live patient monitoring, automated emergency classification, and direct alert routing to responders.
+
+
+Ahmed et al. [13] presented DangerDet, an audio-based emergency detection system that runs completely on-device to reduce dependency on cloud infrastructure. The system uses sound classification models to detect distress events such as screams, crashes, or alarms and then triggers alerts. Results showed that on-device inference is feasible and can reduce latency compared to server-side processing. However, DangerDet suffered from false positives in noisy environments and lacked contextual understanding of the incident, such as distinguishing between benign loud sounds and true emergencies. The system also did not provide first-aid guidance or multi-hop offline alert coordination.
+
+
+Lin et al. [14] surveyed AR-assisted telemedicine platforms that enable remote experts to annotate and guide procedures performed by local caregivers. Their review covered applications in surgery, rehabilitation, and remote consultation, highlighting the potential of AR as a tool for expert-assisted interventions. However, they identified key limitations related to network reliability, as high-bandwidth, low-latency connections are often required, especially for streaming video and AR overlays. They also noted the lack of explicit support for time-critical emergency integration and limited long-term clinical validation.
+
+Nair and Reddy [15] proposed MeshSOS, an IoT-based emergency alert system that uses mesh networking to propagate alerts across nodes in disaster-prone regions. Their design leverages low-power wireless modules to form a multi-hop communication fabric that can operate even when central infrastructure is damaged. Simulation results showed improved reliability and coverage compared to single-hop or infrastructure-dependent solutions. However, the system was validated mainly through simulations and small-scale prototypes, with limited real-world deployment. Furthermore, MeshSOS did not include AI-driven triage, context-aware prioritization, or AR-based first-aid assistance.
+
+
+Green et al. [16] reviewed self-management mHealth systems designed for chronic disease monitoring, lifestyle management, and patient education. Their review found that many apps provided reminders, educational content, and logging features but lacked integrated intelligence for adaptive decision support. Offline capabilities were often minimal, limiting usability in connectivity-constrained contexts. Importantly, the authors highlighted a persistent absence of real-time first-aid assistance or support for acute emergency episodes within self-management platforms.
+
+Bajwa et al. [17] conducted a large-scale systematic review of AI-based emergency response systems, synthesizing over 400 studies on prediction, detection, and resource allocation in emergencies. The review highlighted that machine learning and deep learning models substantially improve hazard detection, dispatch optimization, and risk assessment across domains such as fire incidents, medical emergencies, and disaster management. However, most AI solutions were deployed as backend decision-support tools for professionals, with limited user-facing guidance and scarce integration into end-user mobile applications. The authors recommended future work that embeds AI into user-centric interfaces and combines it with robust communication mechanisms.
+
+Raita et al. [18] compared traditional Emergency Severity Index (ESI) triage with machine learning-based triage models in emergency departments. Their study demonstrated that deep neural networks could predict critical care outcomes with higher accuracy than rule-based triage, achieving significantly better AUC values and reducing under-triage of high-risk patients. This evidence confirms the potential of AI to support decision-making in emergency settings. However, these models primarily operate on structured hospital data and require integration with electronic health records, making them unsuitable for direct use by laypersons.
+
+
+Zhang et al. [19] proposed a real-time IoT-based emergency response and public safety alert system integrating sensors, edge nodes, and cloud services. The architecture achieved sub-second alerting latency and supported large-scale deployments with thousands of devices. Their system demonstrated automatic detection of critical incidents such as fires and accidents, followed by rapid dissemination of alerts to responders and citizens. Nevertheless, the solution relies heavily on dedicated IoT infrastructure and stationary sensors embedded in the environment. It does not provide personalized first-aid guidance to affected individuals or support peer-to-peer offline communication on mobile devices.
+
+
+Yilmazer et al. [20] reviewed Bluetooth Low Energy (BLE) mesh networking applications and discussed their suitability for smart buildings, industrial automation, and disaster communication. They emphasized that BLE mesh supports many-to-many communication, is energy-efficient, and can be deployed using commodity hardware. The authors highlighted that BLE mesh networks are resilient to single-point failures and can provide coverage in indoor environments where other technologies may struggle. These properties make BLE mesh attractive for emergency communication scenarios.
+
+
+Raza et al. [21] introduced Bluemergency, a Bluetooth mesh-based emergency communication system intended for post-disaster scenarios. The system enables smartphones and IoT devices to exchange short emergency messages using multi-hop Bluetooth connections without relying on centralized infrastructure. Prototype implementations demonstrated feasible message propagation in smart office and smart home environments. However, the system primarily focused on connectivity and did not address emergency content classification, user guidance, or integration with first-aid workflows.
+
+
+Li et al. [22] examined global emergency systems based on integrating Wireless Personal Area Networks (WPAN) such as BLE with Low-Power Wide-Area Networks (LPWAN) like LoRa. Their architecture aimed to provide local device-to-device communication along with long-range fallback connectivity in large-scale emergencies. They demonstrated that combining BLE and LoRa can improve coverage, reduce energy consumption, and support multi-hop alert propagation over diverse terrains. While their focus was on infrastructural design and network performance, the work underscores the importance of multi-layer connectivity in resilient emergency systems.
+
+
+Sharma et al. [23] presented RescueNow, a real-time SOS and predictive women’s safety system that integrates a smartphone app with GPS tracking and cloud-based services. The system supports multiple discreet triggers such as button press, shake gesture, and voice activation, and on activation it sends the user’s live location and identity to selected contacts and, where configured, law-enforcement numbers. It also performs silent audio or video recording to preserve incident evidence, and uses machine learning on historical incident and location data to predict crime-prone regions and warn users entering those zones. Experimental evaluation showed reliable alert delivery and improved perceived safety among participants, but the work focuses mainly on personal safety scenarios and does not provide medical triage, first-aid guidance, or offline mesh-based alert propagation.
+
+Hariharan et al. [24] proposed an SOS alert band system for women that uses a wearable wristband with a panic button, GPS, and wireless connectivity to send distress alerts. When activated manually or through detected abnormal motion, the band transmits the user’s coordinates and basic status information to guardians, police contacts, or monitoring centers via Bluetooth-linked phones, Wi-Fi, or cellular networks. Field deployments in rural and tribal regions reported average response times on the order of 10–15 minutes and positive user feedback regarding usability and reliability. However, the system depends on dedicated hardware, requires pairing and charging, and is oriented toward security incidents rather than broader medical emergencies or first-aid support.
+
+O’Sullivan et al. [25] investigated a low-cost telemedicine architecture for emergency medical services that connects ambulances, control centers, and hospitals using audio–video links and shared electronic records. Their approach enables remote physicians to support paramedics in making transport decisions, initiating treatment, and avoiding unnecessary emergency department visits. Pilot implementations showed that many cases could be safely managed with teleconsultation, improving resource utilization and clinical decision-making. At the same time, the model assumes trained staff, institutional workflows, and reasonably stable network connectivity, making it less suitable as a standalone solution for bystanders at the scene of an incident.
+
+Murugan et al. [26] developed an AI-driven virtual health assistance chatbot that uses natural language processing to interpret user-described symptoms and provide preliminary guidance. The system extracts key symptom phrases from free text, queries machine-learning models and medical sources, and responds with basic advice on likely conditions and urgency. Usability studies indicated good user satisfaction and short response times for common query patterns, though performance declined for ambiguous or poorly described complaints. The work shows how conversational interfaces can support symptom assessment on mobile devices, but it does not target real-time emergencies or integrate with structured SOS and alerting workflows.
+
+Das et al. [27] proposed an AI-based medical chatbot that combines machine-learning classifiers with rule-based logic to predict possible diseases from user input. The architecture uses text preprocessing and feature extraction to map symptom descriptions into model inputs, and then ranks likely diagnoses and suggested actions such as self-care or medical consultation. Evaluation on a symptom–disease dataset demonstrated high accuracy, precision, and recall for a range of common conditions, supporting the feasibility of automated symptom triage. However, the system is oriented toward general outpatient decision support rather than time-critical emergencies, and it does not couple its predictions with location-aware SOS dispatch or augmented-reality guidance.
+
+% -----------------------------------------------------------------------------
+\section{Research Gap Analysis}
+
+The literature review indicates that existing emergency response solutions address isolated components rather than delivering an integrated end-to-end system.
+
+Most AR-based medical guidance systems are designed for clinical training and depend on costly head-mounted devices, limiting their accessibility and usability for the general public during real emergencies. These systems are unsuitable for untrained bystanders operating in uncontrolled environments.
+
+AI-driven emergency detection models are largely confined to hospital backends or research settings and rely on structured clinical data. Consumer-level implementations suffer from false alarms, limited contextual awareness, and lack integrated first-aid guidance or severity-based triage.
+
+Current emergency alert applications primarily provide basic SOS and GPS sharing features. They lack intelligent severity assessment, coordinated responder prioritization, and secure data handling, reducing their effectiveness during critical situations.
+
+Offline communication solutions such as BLE mesh networks focus only on message relay and do not integrate AI-driven triage, user guidance, or complete emergency workflows. Similarly, telemedicine systems depend on stable connectivity and professional infrastructure, making them unsuitable for autonomous first-response scenarios.
+
+Furthermore, very few systems employ hybrid architectures that combine cloud intelligence with offline fallback mechanisms, limiting reliability during network disruptions.
+
+Overall, there is a clear absence of a unified, intelligent, and connectivity-resilient emergency response platform that combines AI-based emergency classification, AR-guided first aid on smartphones, and reliable offline alert propagation for untrained bystanders.
+
+% -----------------------------------------------------------------------------
+
+\section{Scope Definition}
+
+The scope of \textbf{ResQNow: AI-AR First Aid \& Emergency App} ensures feasibility within an academic project.
+
+\textbf{Timeframe:} Single academic project cycle.
+
+\textbf{Geographical Context:} Urban/semi-urban areas with variable connectivity.
+
+\textbf{Operational Environment:} Smartphone-based emergencies (cardiac arrest, bleeding, trauma) for untrained bystanders.
+
+\textbf{Functional Boundaries:} AI classification, AR first-aid, SOS alerts, GPS sharing, BLE offline communication.
+
+\textbf{Target Users:} Victims, bystanders, nearby responders.
+
+\textbf{Technical Constraints:} Standard Android smartphones only.
+
+\textbf{Limitations:} No clinical diagnosis or disaster coordination.
+
+ResQNow bridges research gaps with intelligent emergency response on commodity devices.
+
+

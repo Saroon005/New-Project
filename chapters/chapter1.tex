@@ -1,0 +1,120 @@
+\chapter{INTRODUCTION}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+{\setstretch{1.5}
+
+This chapter introduces the background, motivation, and problem context of the proposed ResQNow: AI–AR First Aid \& Emergency App. It highlights the challenges associated with existing emergency response mechanisms, outlines the objectives of the project, defines the problem scope, and presents the proposed solution. The chapter establishes the foundational need for an intelligent, technology-driven emergency response system capable of assisting users during critical situations.
+
+% -----------------------------------------------------------------------------
+\section{Background and Overview}
+
+Medical emergencies demand immediate intervention, as delays during the initial minutes can significantly increase mortality and long-term complications. In many real-world situations, professional medical assistance is not instantly available, placing untrained bystanders in a critical position to provide first aid. This highlights the need for intelligent, technology-driven emergency response systems that can support timely and effective intervention.
+
+
+\subsection{The Critical Nature of Emergency Response}
+
+Medical emergencies such as cardiac arrest, severe bleeding, burns, road accidents, and sudden health collapse require immediate intervention within the first few minutes to prevent fatal outcomes. In many real-world scenarios, professional medical assistance is not instantly available, and the responsibility of providing initial aid often falls on nearby bystanders. These individuals are typically untrained, uncertain about correct first-aid procedures, and hesitant to intervene due to fear of causing further harm.
+
+The concept of the "golden hour" in emergency medicine emphasizes that the first 60 minutes following a traumatic injury are the most critical for survival. However, research indicates that even shorter time windows, often referred to as the "platinum ten minutes", are decisive in cases of cardiac arrest, severe hemorrhage, or respiratory failure. During these crucial moments, the availability of immediate assistance and the quality of initial intervention directly determine patient outcomes. Statistics reveal that survival rates for cardiac arrest victims drop by approximately 10\% with each passing minute without CPR or defibrillation. Similarly, uncontrolled bleeding can lead to irreversible shock within minutes, and improper handling of burn injuries can significantly worsen tissue damage and infection risk.
+
+Despite the clear importance of rapid response, the reality in most emergency situations is far from ideal. Ambulance response times vary significantly across urban and rural regions, with average arrival times ranging from 5 to 15 minutes in cities and extending beyond 30 minutes in remote areas. In densely populated urban centers, traffic congestion, limited road access, and communication delays further impede emergency vehicle movement. In rural and disaster-affected regions, the scarcity of medical infrastructure, inadequate transportation networks, and poor communication systems create additional barriers to timely professional intervention.
+
+In such scenarios, the presence of trained bystanders capable of administering basic life support can substantially improve survival rates. However, formal first-aid training is not widespread among the general population. Surveys indicate that fewer than 30\% of adults have received any form of first-aid or CPR training, and even among those trained, confidence levels remain low due to lack of practice and fear of legal consequences. This reluctance to act is compounded by the absence of clear, real-time guidance during actual emergencies, where stress, panic, and uncertainty dominate decision-making.
+
+\subsection{Limitations of Conventional Emergency Systems}
+
+Conventional emergency response systems rely primarily on emergency helpline calls and manual communication. Such mechanisms are highly dependent on stable network connectivity, provide limited situational awareness, and fail to deliver real-time, on-site procedural guidance. As a result, valuable time is lost during the critical early stages of an emergency, significantly reducing survival probability. Traditional helpline systems require the caller to verbally describe the situation, often under extreme stress, leading to incomplete or inaccurate information being conveyed to dispatchers. Furthermore, these systems do not provide immediate assistance to the caller or bystanders, leaving them without actionable instructions until professional help arrives.
+
+The dependency on voice-based communication introduces several inherent limitations. During high-stress situations, individuals often struggle to articulate symptoms accurately, leading to misclassification of emergency severity. Language barriers, hearing impairments, and environmental noise further complicate effective communication. Additionally, traditional systems lack the capability to capture visual or contextual information that could aid in severity assessment and resource allocation. The passive nature of these systems means that bystanders remain idle while waiting for professional help, missing critical opportunities to provide life-saving interventions.
+
+Network connectivity represents another fundamental constraint of existing emergency response mechanisms. In disaster scenarios, natural calamities, or regions with poor telecommunications infrastructure, cellular networks frequently become congested or completely unavailable. During such events, the inability to place emergency calls or transmit location information renders conventional systems ineffective precisely when they are needed most. This connectivity dependency creates a critical vulnerability that can result in delayed or failed emergency responses.
+
+\subsection{Technological Enablers for Modern Emergency Response}
+
+The advent of smartphones and mobile computing has introduced new possibilities for emergency response enhancement. Modern smartphones are equipped with powerful processors, high-resolution cameras, GPS receivers, various sensors including accelerometers and gyroscopes, and multiple communication interfaces such as cellular networks, Wi-Fi, and Bluetooth. These capabilities position smartphones as ideal platforms for intelligent emergency response systems that can detect, classify, and respond to emergencies with minimal human intervention.
+
+Artificial intelligence has emerged as a transformative technology across healthcare domains, including emergency triage, diagnostic assistance, and predictive analytics. Machine learning models trained on large datasets of emergency case reports can identify patterns and classify emergency severity with high accuracy. Natural language processing techniques enable conversational interfaces that can gather critical information from users quickly and efficiently. Computer vision algorithms can analyze images and video feeds to detect visible injuries or hazards. When integrated into mobile emergency response systems, AI can provide rapid situational assessment, prioritize alerts based on severity, and deliver personalized guidance tailored to specific emergency types.
+
+Augmented reality represents another breakthrough technology with significant potential for emergency response applications. AR overlays digital information onto the real-world view captured by a device's camera, creating an immersive and intuitive interface for procedural guidance. In the context of first aid, AR can visually demonstrate correct hand placement for chest compressions, highlight anatomical landmarks for tourniquet application, and provide step-by-step instructions for using automated external defibrillators. Unlike traditional text or video-based guidance, AR-based instructions are contextualized to the user's immediate environment, reducing cognitive load and improving comprehension under high-stress conditions. Research in AR-assisted medical training has demonstrated significant improvements in procedure retention and execution accuracy compared to conventional instruction methods.
+
+Global positioning systems have become ubiquitous in modern mobile devices, enabling precise location tracking and navigation. In emergency scenarios, GPS data can be used to identify the exact location of incidents, guide responders to the scene, and provide situational context to emergency services. Real-time location sharing allows family members and emergency contacts to track the status of their loved ones during critical situations. Location-based alerts can notify nearby trained responders or medical volunteers, creating a distributed emergency response network that operates independently of centralized infrastructure. The accuracy of modern GPS systems, often within a few meters, enables responders to locate victims even in complex urban environments or unfamiliar terrain.
+
+\subsection{The Integration Gap and Resilience Challenge}
+
+Despite the availability of these advanced technologies, existing emergency support applications remain largely limited in scope and functionality. Most current solutions focus on a single aspect of emergency response, such as location sharing, emergency dialing, or static first-aid reference materials. Few systems integrate multiple technologies into a cohesive platform capable of intelligent emergency detection, guided intervention, and resilient communication. Furthermore, nearly all existing solutions depend entirely on continuous internet connectivity, rendering them ineffective in areas with poor network coverage or during large-scale disasters when cellular infrastructure may be compromised.
+
+Bluetooth Low Energy technology offers a promising solution to the connectivity challenge. BLE enables short-range wireless communication between devices with minimal power consumption. In emergency contexts, BLE can be used to create ad-hoc mesh networks where SOS alerts are relayed from device to device until reaching one with internet connectivity. This offline relay mechanism ensures that emergency notifications can propagate even in network-constrained environments, significantly improving system reliability and coverage. The low power consumption of BLE makes it particularly suitable for emergency applications where device battery life is critical.
+
+The integration of AI, AR, GPS, and BLE technologies into a unified emergency response platform represents a significant advancement over existing approaches. Such a system can automatically detect and classify emergencies, provide immersive visual guidance for life-saving procedures, accurately track and share location information, and maintain operational continuity even without internet access. By empowering ordinary individuals with intelligent tools and real-time guidance, this integrated approach has the potential to dramatically improve emergency response outcomes and save lives.
+
+The development of ResQNow addresses these challenges by bringing together cutting-edge technologies in a practical, user-centered mobile application. The system is designed to be intuitive enough for untrained users to operate under stress, reliable enough to function in diverse environmental conditions, and intelligent enough to adapt to varying emergency scenarios. Through careful integration of AI-driven classification, AR-based procedural guidance, GPS-enabled location tracking, and BLE-supported offline communication, ResQNow aims to transform how individuals respond to medical emergencies before professional help arrives.
+
+% -----------------------------------------------------------------------------
+\section{Motivation}
+
+Despite the widespread availability of smartphones, existing emergency-support solutions remain largely reactive and limited in functionality. Victims or witnesses are expected to manually describe emergency situations, wait passively for assistance, and depend entirely on continuous internet connectivity. This leads to delayed responses, lack of actionable guidance, and system failure in rural areas, disaster zones, or connectivity-constrained environments.
+
+Bystanders frequently avoid providing assistance due to uncertainty regarding life-saving procedures such as cardiopulmonary resuscitation (CPR), bleeding control, or burn management. Even when willing to help, the absence of clear visual and contextual guidance results in ineffective or incorrect intervention. Legal concerns and fear of liability further discourage well-intentioned individuals from providing aid in life-threatening situations.
+
+The motivation behind ResQNow is to bridge this critical gap by enabling immediate, intelligent, and guided emergency response at the user level. By integrating AI-driven emergency classification, immersive AR-based first-aid guidance, and offline SOS propagation using Bluetooth Low Energy (BLE), the system empowers individuals to act confidently and effectively during emergencies, thereby improving survival outcomes. 
+In addition, the system emphasizes resilience by ensuring continued operation during network outages and infrastructure disruptions common in real-world emergency scenarios. Severity-aware alert prioritization further reduces response delays by directing attention to critical cases. 
+This approach enhances situational awareness for responders while reducing cognitive load on distressed users. Consequently, the system supports faster, more coordinated, and life-saving interventions before professional help arrives.
+
+
+% -----------------------------------------------------------------------------
+\section{Objectives of the Project}
+
+The primary objectives of the ResQNow project are to:
+\begin{itemize}
+    \item Design a mobile-based emergency response system that enables rapid SOS activation with minimal user interaction.
+    \item Implement AI-based emergency classification for real-time identification of emergency type and severity.
+    \item Provide AR-based visual first-aid guidance to assist untrained bystanders in performing life-saving procedures.
+    \item Enable continuous GPS-based location tracking and alert dissemination to emergency contacts and responders.
+    \item Ensure reliable SOS delivery during internet unavailability using BLE-based offline relay communication.
+    \item Maintain data security and user privacy through authenticated access and encrypted communication.
+    \item Evaluate system effectiveness using measurable metrics such as response latency, reliability, and classification accuracy.
+\end{itemize}
+
+% -----------------------------------------------------------------------------
+\section{Problem Statement}
+
+In many emergency situations, the absence of immediate professional medical assistance, combined with limited first-aid knowledge among bystanders, results in preventable loss of life. Existing emergency response systems primarily rely on voice-based communication and manual reporting, providing no real-time procedural guidance and minimal intelligence for assessing emergency type and severity. Moreover, these systems are highly dependent on continuous network connectivity, rendering them ineffective in rural regions, disaster-affected areas, and crowded environments where communication infrastructure is unreliable.
+
+Addressing this issue is critically important because the initial minutes following an emergency incident play a decisive role in patient survival. Delayed response, misinterpretation of emergency severity, and incorrect or absent first-aid intervention significantly increase fatality risk. In the absence of accessible, real-time guidance, even willing bystanders often remain passive due to fear, uncertainty, or lack of confidence, resulting in missed opportunities for life-saving intervention.
+
+The proposed ResQNow system addresses this problem by providing an intelligent mobile-based emergency response platform that integrates AI-driven emergency severity classification, immersive AR-guided first-aid assistance, and resilient SOS communication through BLE-based offline relay networking. By reducing response latency, enabling guided intervention for untrained bystanders, and ensuring reliable alert delivery under poor connectivity conditions, the system aims to improve emergency coordination and survival outcomes while remaining feasible within academic and resource constraints.
+
+
+% -----------------------------------------------------------------------------
+\section{Proposed Solution Overview}
+
+ResQNow adopts a layered client–server architecture centered around a Flutter-based mobile application and a FastAPI-powered backend to address the limitations of conventional emergency response systems. The mobile application enables rapid SOS activation through manual or voice-based triggers and captures contextual data such as user input and GPS location, which is securely transmitted to the backend for AI-based emergency type and severity analysis, enabling timely and informed response initiation.
+
+For immediate bystander assistance, the application activates augmented reality (AR) overlays aligned with the real-world camera view, visually guiding correct hand placement and procedural steps for CPR, AED usage, and basic first-aid actions. In scenarios where internet connectivity is unavailable, encrypted SOS packets are forwarded via Bluetooth Low Energy (BLE) to nearby ResQNow-enabled devices, forming a local relay network until connectivity is restored, thereby ensuring continuity of emergency communication.
+
+The system further integrates secure user authentication, continuous GPS-based location tracking, responder acknowledgment mechanisms, and both offline and online AI components to ensure coordinated assistance, reliable alert delivery, and adaptive operation under varying network conditions.
+
+Through this integrated approach, ResQNow provides a practical solution that reduces emergency response latency, enables guided intervention by untrained bystanders, and ensures resilient communication. The project outcomes benefit victims by improving access to timely assistance, bystanders by providing confidence and guidance during emergencies, emergency responders through improved situational awareness, and healthcare systems by supporting faster, more coordinated pre-hospital response.
+
+
+
+% -----------------------------------------------------------------------------
+\section{Organisation of the Report}
+
+\textbf{Chapter 1: Introduction} illustrates the general overview of the proposed ResQNow: AI–AR First Aid \& Emergency App, detailing the project's motivation, objectives, and the specific problem statement addressed.
+
+\textbf{Chapter 2: Literature Survey} surveys existing emergency response systems, AI-based triage, AR in healthcare, and offline communication mechanisms, while highlighting limitations and research gaps in current solutions.
+
+\textbf{Chapter 3: Software Requirements Specification} outlines the overall system requirements, including functional and non-functional needs, hardware and software specifications, development tools, and project constraints.
+
+\textbf{Chapter 4: Design and Methodology} explains the system architecture, emergency detection workflow, AI classification, AR-guided assistance, GPS tracking, and BLE-based offline communication, along with experimental evaluation procedures.
+
+\textbf{Chapter 5: Implementation} details the development of the mobile application, backend services, AI integration, AR guidance, SOS handling mechanisms, and offline communication logic.
+
+\textbf{Chapter 6: Testing and Validation} presents testing strategies and results used to verify system reliability, covering functional, integration, performance, and offline communication validation.
+
+\textbf{Chapter 7: Application Results and User Interface} demonstrates system results via application screens, highlighting SOS activation, AI-assisted handling, AR interfaces, and offline alert tracking.
+
+\textbf{Chapter 8: Conclusion and Future Work} summarizes project contributions and outcomes, outlining future enhancements such as wearable integration, multilingual AR guidance, and on-device AI optimization.
+
+}

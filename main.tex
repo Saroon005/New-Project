@@ -1,0 +1,439 @@
+% -----------------------------------------------------------------------------
+% IMPORTANT NOTICE:\clearpage\chapter{Chapter Title Here}
+
+
+% This LaTeX document template is provided by Dr. Girish Kumar N G, Assistant Professor 
+%Department of Electronics and Telecommunication Engineering
+%Bangalore Institute of Technology, V V Pura, K R Road, Bengaluru-560004.
+% It is intended for educational purposes and for use by students
+% in preparing their reports. All rights to the original template
+% remain reserved by the author. 
+%
+% Students are permitted to edit and customize this template for
+% their reports; however, the original authorship and attribution 
+% must not be removed or altered.
+%
+% Any unauthorized distribution, reproduction, or commercial use
+% of this template, in part or in whole, is strictly prohibited 
+% without prior written consent from the author.
+% -----------------------------------------------------------------------------
+
+%contents that you see in blue colour and brackets, symbols in red  are coding commands do not edit it until you know coding and feel to edit
+
+\documentclass[12pt]{report}% document starts from here with standard document class
+
+% Package imports- these are package imports dont edit these packages
+\usepackage{graphicx} % For including graphics
+\usepackage{geometry} % For adjusting page margins
+\usepackage{fancyhdr} % For headers and footers
+\usepackage{mdframed} % For creating page borders
+\usepackage{setspace} % For line spacing
+\usepackage{tocloft} % For formatting TOC, LOF, and LOT
+\usepackage{tabularx}
+\usepackage{float} % For the H option in figure floats
+\usepackage{algorithm}
+\usepackage{algpseudocode} % For the algorithmic environment
+\usepackage{nomencl} % For abbreviations list
+\usepackage{etoolbox} % Needed for \patchcmd
+\usepackage{ragged2e}
+\usepackage{longtable}
+\usepackage{url}      % for \url command in bibliography
+\usepackage[hidelinks]{hyperref}
+\usepackage{hyperref} % optional, for clickable links
+\usepackage{titlesec}  % Add this package
+\titlespacing*{\chapter}{0pt}{-40pt}{10pt} % Reduce space before chapter heading
+
+% Fix: Unicode subscript 2 (₂) in SpO₂ when compiling with pdfLaTeX
+\DeclareUnicodeCharacter{2082}{\textsubscript{2}}
+% ------------------------------------------------------------
+% GLOBAL SPACING BETWEEN TABLE/FIGURE AND TEXT
+% ------------------------------------------------------------
+\setlength{\intextsep}{4pt}   % Default ~8pt, increase to add 2–3 mm space
+
+\usepackage{titlesec}
+
+% Customize chapter heading: Chapter 1 Introduction (on the same line)
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace*{-25pt}% Adjust space before chapter number
+  {\parindent \z@
+    \raggedright
+    \normalfont
+    \fontsize{16pt}{20pt}\selectfont\bfseries
+    Chapter \thechapter\par\nobreak
+    \vskip 8pt
+    \begin{center}
+      \fontsize{20pt}{22pt}\selectfont\bfseries #1
+    \end{center}
+    \vskip 2pt
+  }}
+\def\@makeschapterhead#1{%
+  \vspace*{-25pt}%
+  {\parindent \z@
+    \normalfont
+    \fontsize{20pt}{22pt}\selectfont\bfseries
+    \begin{center}#1\end{center}\par\nobreak
+    \vskip 5pt
+  }}
+\makeatother
+
+% ------------------------------------------------------------
+% SECTION AND SUBSECTION FONT SIZE FORMATTING
+% ------------------------------------------------------------
+\titleformat{\section}
+  {\normalfont\fontsize{16pt}{20pt}\bfseries}
+  {\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\normalfont\fontsize{14pt}{18pt}\bfseries}
+  {\thesubsection}{1em}{}
+
+\makenomenclature
+\geometry{a4paper, left=1.25in, right=1in, top=1in, bottom=1in}
+
+
+% dont edit these- the below codes are written to give page numbers roman numbers for preliminary pages and arabic numbering for content pages
+
+\fancypagestyle{preliminary}{
+    \fancyhf{}
+    \fancyfoot[C]{\thepage} % Center Roman page numbers
+    \setlength{\footskip}{0.75in}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+% dont edit these- the below codes are written to give page numbers roman numbers for preliminary pages and arabic numbering for content pages
+
+\fancypagestyle{maincontent}{
+    \fancyhf{}
+    \fancyfoot[C]{\thepage} % Center Arabic page numbers
+    \setlength{\footskip}{0.75in}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+\makeatletter
+\patchcmd{\chapter}
+  {\thispagestyle{plain}} % Replace plain style
+  {\thispagestyle{maincontent}} % Apply the custom style
+  {}{} % Do nothing if the patch fails
+\makeatother
+
+\fancypagestyle{maincontent}{
+    \fancyhf{} % Clear all header and footer fields
+
+    % Header
+    \fancyhead[L]{\textbf{ResQNow: AI-AR First Aid \& Emergency App}} % Left side of header
+    \fancyhead[R]{\textbf{2025-2026}} % Right side of header
+    \renewcommand{\headrulewidth}{1.5pt} % Thickness of header line
+    \renewcommand{\headrule}{%
+        \hrule height 1.5pt % Top border thickness
+        \vspace{1pt} % Small gap
+        \hrule height 0.5pt % Bottom border thickness
+    }
+
+  % Footer
+\fancyfoot[L]{\textbf{Dept. of CSE(ICB), BIT}} % Left side of footer
+\fancyfoot[R]{\thepage} % Right side of footer
+\renewcommand{\footrulewidth}{1.5pt} % Top border thickness
+\renewcommand{\footrule}{%
+    \vspace{-3pt}% move rule a bit up
+    \hrule height 1.5pt
+    \vspace{0.5pt}
+    \hrule height 0.5pt
+    \vspace{2pt} % adjust as needed
+    }
+}
+
+
+% ------------------------------------------------------------
+% Reduce space ABOVE titles of TOC, LOF, LOT ONLY
+% (Does NOT affect chapters or section headings)
+% ------------------------------------------------------------
+
+% Table of Contents
+\setlength{\cftbeforetoctitleskip}{-0.4cm}
+
+% List of Figures
+\setlength{\cftbeforeloftitleskip}{-0.4cm}
+
+% List of Tables
+\setlength{\cftbeforelottitleskip}{-0.4cm}
+
+% ------------------------------------------------------------
+% GLOBAL SPACING BETWEEN TABLE CAPTION AND TABLE (ENTIRE DOCUMENT)
+% ------------------------------------------------------------
+\setlength{\belowcaptionskip}{8pt}   % ≈ 2.8 mm space
+
+\begin{document}
+
+% Title Page (No page number)-from here the title page code begins kindly see the content where to edit
+
+% -----------------------------------------------------------------------------
+% TITLE PAGE (REPLACED WITH UPDATED BIT / VTU FORMAT)
+% -----------------------------------------------------------------------------
+\begin{titlepage}
+    \begin{mdframed}[linewidth=3pt, innerleftmargin=10pt, innerrightmargin=10pt, innertopmargin=10pt, innerbottommargin=10pt]
+        \begin{center}
+            \textbf{\fontsize{14pt}{16pt}\selectfont VISVESVARAYA TECHNOLOGICAL UNIVERSITY}\\[0.2cm]
+            \textbf{\fontsize{14pt}{16pt}\selectfont BELAGAVI-590018}\\[0.3cm]
+            
+            % VTU LOGO
+            \includegraphics[width=0.22\textwidth,keepaspectratio]{VTU.png}\\[0.3cm]
+            
+            \textbf{\fontsize{14pt}{16pt}\selectfont Project Report On}\\[0.3cm]
+            \textbf{\fontsize{14pt}{18pt}\selectfont
+            \textcolor{black}{"ResQNow: AI-AR First Aid \& Emergency App"}}\\[0.3cm]
+            
+            \fontsize{12pt}{14pt}\selectfont Submitted in partial fulfillment of the requirements for the\\
+            award of the Degree of\\[0.3cm]
+            \textbf{\fontsize{14pt}{16pt}\selectfont Bachelor of Engineering}\\[0.2cm]
+            in\\[0.2cm]
+            \textbf{\fontsize{13pt}{15pt}\selectfont CSE (IoT \& Cyber Security including Blockchain Technology)}\\[0.5cm]
+            
+            \textbf{\fontsize{12pt}{14pt}\selectfont Submitted by}\\[0.3cm]
+            \begin{tabular}{c c}
+                1BI22IC001 & A P SAROON \\
+                1BI22IC038 & MEDHA BHAT \\
+                1BI22IC057 & SUFAILA T S \\
+                1BI23IC405 & PRANAVA N A \\
+            \end{tabular}\\[0.5cm]
+            
+            \textbf{\fontsize{12pt}{14pt}\selectfont Under the guidance of}\\[0.3cm]
+            \textbf{\fontsize{12pt}{14pt}\selectfont Dr. K C Anupama}\\
+            \fontsize{11pt}{13pt}\selectfont Assistant Professor\\
+            \fontsize{11pt}{13pt}\selectfont Dept of CSE(ICB)\\[0.3cm]
+            
+            % BIT LOGO
+            \includegraphics[width=0.13\textwidth,keepaspectratio]{BITlogo.png}\\[0.3cm]
+            
+            \textbf{\fontsize{13pt}{15pt}\selectfont BANGALORE INSTITUTE OF TECHNOLOGY}\\[0.2cm]
+            \fontsize{11pt}{13pt}\selectfont K R Road, V V Pura, Bengaluru-560004\\[0.2cm]
+            \fontsize{9pt}{11pt}\selectfont Affiliated to VTU, Belagavi, Approved by AICTE, Accredited by NBA, NAAC\\[0.3cm]
+            
+            \textbf{\fontsize{12pt}{14pt}\selectfont 2025--2026}
+        \end{center}
+    \end{mdframed}
+\end{titlepage}
+
+
+% Start Roman numbering for preliminary pages
+
+% Project Certificate sheet begins from here, only edit where ever it is mentioned to edit
+
+\pagenumbering{roman}
+\pagestyle{preliminary}
+\setcounter{page}{1}
+\newpage
+% Certificate
+%\chapter*{Certificate}
+\addcontentsline{toc}{chapter}{Certificate}
+%%\begin{spacing}{1.25}
+\tolerance =1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+\begin{center}
+{\large\textbf{BANGALORE INSTITUTE OF TECHNOLOGY}}\\[0.2cm]
+\textbf{\fontsize{11pt}{13pt}\selectfont CSE (IoT \& Cyber Security including Blockchain Technology)}
+\\
+{\fontsize{12pt}{14pt}\selectfont K R Road, V V Pura, Bengaluru-560004.}\\[0.5cm]
+\includegraphics[width=1.5in,height=1.5in,keepaspectratio]{BITlogo} % Add your college logo
+\end{center}
+
+\begin{center}
+\vspace{0.1in}
+\bfseries\LARGE{CERTIFICATE}
+\end{center}
+\vspace{0.2in}
+
+\begin{spacing}{1.25} % Set the line spacing to 1.25
+\normalfont
+\noindent
+
+% in  below paragraph your name and USN in bracket should be mentioned in a proper Chronological order of your USN number
+ This is to certify that the project report entitled \textbf{"ResQNow: AI-AR First Aid \& Emergency App"} submitted by\textbf{ A P SAROON (1BI22IC001), MEDHA BHAT (1BI22IC038), SUFAILA T S (1BI22IC057) and PRANAVA N A (1BI23IC405) } to the Visvesvaraya Technological University, Belagavi, in partial fulfillment for the award of the degree of \textbf{B.E. in Computer Science and Engineering (IoT \& Cyber Security including Blockchain Technology)} is a \textit{bonafide} record of project work carried out by them under our supervision. The contents of this report, in full or in parts, have not been submitted to any other Institution or University for the award of any degree.\\[0.4cm]
+\end{spacing}
+\vspace{0.65cm}
+
+%in below part of the code you need to mention your guide and your HODs name
+\begin{center}
+    % \textwidth makes the table span the full width of the page
+    % @{\extracolsep{\fill}} automatically adds space between columns
+    % l = Left align, c = Center align, r = Right align
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ccc}
+    
+        \textbf{Project Guide} &  & \textbf{HOD} \\[0.1cm]
+    
+        Dr.\ Anupama K C & & Dr.\ Shivakumar B R \\[0.1cm]
+        Associate Professor &  & Professor \& HOD \\[0.1cm]
+        Dept of CSE(ICB), & & Dept of CSE(ICB), \\[0.1cm]
+        BIT,Bengaluru-560004 & \textbf{Principal} &  BIT,Bengaluru-560004  \\[0.1cm]
+        & Dr. Shanthala S &      \\[0.1cm]
+        & BIT,Bengaluru-560004&
+        
+    \end{tabular*}
+\end{center}
+
+% no need of editing the below further part of the code of certificate  as it is College Principal Details and examiners details
+
+\begin{center}
+\end{center}
+
+\vspace{0.15cm}
+
+\begin{center}
+\textbf{\large{\underline{Project Final Viva Voce Examination}}}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{center}
+\begin{tabular}{|m{2.5cm}|m{10cm}|} % Using m{} for vertical and horizontal centering
+		\hline
+		\textbf{Examiners} & \textbf{Signature with Date} \\\hline
+		\textbf{Examiner 1} & \rule{0pt}{0.75cm} \\\hline % Increased vertical space
+		\textbf{Examiner 2} & \rule{0pt}{0.75cm} \\\hline % Increased vertical space
+	\end{tabular}
+\end{center}
+
+% Project Declaration sheet begins from here, only edit where ever it is mentioned to edit
+
+\newpage
+% Declaration
+%\newpage
+%\chapter*{Declaration}
+\addcontentsline{toc}{chapter}{Declaration}
+%%\begin{spacing}{1.25}
+\begin{center}
+{\large\textbf{BANGALORE INSTITUTE OF TECHNOLOGY}}\\[0.2cm]
+\textbf{\fontsize{11pt}{13pt}\selectfont CSE (IoT \& Cyber Security including Blockchain Technology)}
+\\
+{\fontsize{12pt}{14pt}\selectfont K R Road, V V Pura, Bengaluru-560004.}\\[0.5cm]
+\includegraphics[width=1.5in,height=1.5in,keepaspectratio]{BITlogo} % Add your college logo
+\end{center}
+
+\begin{center}
+\vspace{0.1in}
+\bfseries\LARGE{DECLARATION}
+\end{center}
+\vspace{0.2in}
+
+\begin{spacing}{1.25} % Set the line spacing to 1.25
+\normalfont
+\noindent
+
+% in  below paragraph your name and USN in bracket should be mentioned in a proper Chronological order of your USN number
+
+We declare that this project report titled \textbf{"ResQNow: AI-AR First Aid \& Emergency App"} submitted in partial fulfillment of the degree of \textbf{B.E. in Computer Science and Engineering(IoT \& Cyber Security including Blockchain Technology)} is a record of original work carried out by us under the supervision of \textbf{Dr. ANUPAMA K C}, and has not formed the basis for the award of any other degree, in this or any other Institution or University. In keeping with the ethical practice in reporting scientific information, due acknowledgements have been made wherever the findings of others have been cited.\\[1.25cm]
+
+\begin{tabular}{|c|c|m{8cm}|} % Correct column specification
+\hline
+
+% type your USN number and Name (1BIXXETXX to be changed with your USN and AAAA should be replaced with your full name...similary %other three rows below 
+
+\textbf{USN} & \textbf{Name} & \textbf{Student Signature with Date} \\ \hline
+ (1BI22IC001)  & A P SAROON  & \\ \hline
+(1BI22IC038)   & MEDHA BHAT  & \\ \hline
+(1BI22IC057)   & SUFAILA T S & \\ \hline
+(1B123IC405)   & PRANAVA N A  & \\ \hline
+\end{tabular}
+\end{spacing}
+
+% Project Acknolwdgement sheet begins from here, only edit where ever it is mentioned to edit
+
+% Acknowledgements
+% Acknowledgements
+\newpage
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\begin{center}
+\vspace{0.2in}
+\bfseries\LARGE{ACKNOWLEDGEMENT}
+\end{center}
+\vspace{0.2in}
+\begin{spacing}{1.25}
+\justifying
+
+First and foremost, we express our sincere gratitude to the \textbf{Rajya Vokkaligara Sangha}, Bengaluru, and \textbf{Bangalore Institute of Technology (BIT)}, Bengaluru, for providing an excellent academic environment, necessary infrastructure, and continuous institutional support that enabled us to successfully pursue our engineering education and complete this project.
+
+We express our sincere gratitude to \textbf{Dr. Shanthala S},The Principal, Bangalore Institute of Technology, Bengaluru, for providing a conducive academic atmosphere and constant encouragement throughout this project work.
+
+We would like to extend our deepest gratitude to our project guide, \textbf{Dr. Anupama K. C.}, Associate Professor, Department of \textbf{CSE (IoT \& Cyber Security including Blockchain Technology)}, BIT, Bengaluru, for her invaluable guidance, technical expertise, and continuous encouragement, which played a vital role in achieving the project objectives.
+
+We are grateful to \textbf{Dr. B. R. Shivakumar}, Professor and Head of the Department of \textbf{CSE (IoT \& Cyber Security including Blockchain Technology)}, for his motivation and support throughout the course of this work.
+
+Our sincere thanks are extended to our Project Coordinator, \textbf{Dr. Anupama K. C.}, and all the faculty members of the Department of \textbf{CSE (IoT \& Cyber Security including Blockchain Technology)} for their guidance, cooperation, and support during the project.
+
+On a personal note, we express our heartfelt gratitude to our parents for their unconditional love, encouragement, and sacrifices, and to our friends and peers for their constant support and motivation throughout this project.
+
+\end{spacing}
+
+
+% type your USN number and Name (1BIXXETXX to be changed with your USN and AAAA should be replaced with your full name...similary %other three rows below 
+
+\begin{flushright}
+\begin{tabular}{c c} % Center-aligned Signature column
+(1BI22IC001)  & A P SAROON\\
+(1BI22IC038)   & MEDHA BHAT\\
+(1BI22IC057)   & SUFAILA T S\\
+(1B123IC405)   & PRANAVA N A\\
+\end{tabular}
+\end{flushright}
+%\vspace{1.5cm}
+%Name of candidate
+% ------------------------------------------------------------------------\end{spacing}
+
+
+% Project Abstract sheet begins from here, only edit where ever it is mentioned to edit
+% Abstract
+
+\newpage
+\chapter*{Abstract}
+\thispagestyle{plain} % Keep Roman numbering but suppress header and footer styling
+\addcontentsline{toc}{chapter}{Abstract}
+\begin{spacing}{1.25}
+
+Timely response during life-threatening emergencies is often hindered by delayed reporting, lack of bystander guidance, limited situational awareness, and complete dependence on internet connectivity in existing emergency support systems. To address these challenges, this project proposes \textbf{ResQNow}, an AI- and AR-powered emergency response and first-aid assistance system designed for both online and offline operation. The system integrates a Flutter-based mobile application with a Python (FastAPI) backend and Firebase services to enable rapid SOS activation, continuous GPS tracking, secure user authentication, and coordinated responder acknowledgment. Emergency severity is determined using a dual-mode intelligence framework combining cloud-based conversational AI with an offline rule-based classifier. For immediate on-site assistance, ARCore-enabled visual guidance supports critical procedures such as CPR and AED usage. Encrypted Bluetooth Low Energy (BLE) communication ensures SOS propagation in low-connectivity environments. Experimental results demonstrate SOS dispatch times of 2–3 seconds, AR initialization latency below 1.5 seconds, BLE relay reliability above 90\%, and emergency classification accuracy of approximately 89\%, validating the system’s efficiency and resilience.\\
+
+\end{spacing}
+
+% Table of Contents- content sheet is automatically generated in your report when ever you edit chapters in the report
+
+\newpage
+\tableofcontents
+%\addcontentsline{toc}{chapter}{Table of Contents}
+
+% List of Figures-List of figures sheet is automatically generated in your report when ever you add figures in each chapters in the report
+
+\newpage
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+% List of Tables - List of tables sheet is automatically generated in your report whenever you add tables in each chapter
+\newpage
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+
+% List of Tables-List of tables sheet is automatically generated in your report when ever you add figures in each chapters in the report
+
+
+
+
+
+% Switch to Arabic numbering for main content
+\newpage
+\pagenumbering{arabic}
+\pagestyle{maincontent}
+
+\input{chapters/chapter1.tex}
+\input{chapters/chapter2.tex}
+\input{chapters/chapter3.tex}
+\input{chapters/chapter4.tex}
+\input{chapters/chapter5.tex}
+\input{chapters/chapter6.tex}
+\input{chapters/chapter7.tex}
+\input{chapters/chapter8.tex}
+\input{chapters/chapter9.tex}
+
+%\addcontentsline{toc}{chapter}{References} % Adding References to the ToC
+\
+\end{document}
